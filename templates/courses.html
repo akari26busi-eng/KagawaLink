@@ -1,0 +1,55 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h2>Classes</h2>
+    <div id="search-wrap">
+        <form role="search" method="get" action="{{ url_for('courses') }}">
+            <input type="text" name="search" id="search-text" value="{{ search }}">
+        </form>
+    </div>
+    {% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+    {% for course in courses %}
+    <details class="course">
+        <summary>
+            {{ course.course_name }}
+        </summary>
+        <div class="course-content">
+            <p>
+                <span class="label">教員：</span>{{ course.teacher }} 先生<br>
+                <span class="label">評価方法：</span>{{ course.evaluation }}<br>
+                <span class="label">授業形式：</span>{{ course.method }}<br>
+                <span class="label">難易度：</span>{{ course.difficulty }}<br>
+                <span class="label">過去問ファイル：</span>
+                {% for file in course.file %}
+                <a href="{{ url_for('static', filename='uploads/' ~ file.name) }}" download>{{ file.name }}</a>
+                {% endfor %}
+            </p>
+            {% for comment in course.comments %}
+            <div class="comment">
+                <span class="comment-header">{{ comment.program }} {{ comment.grade }}年：</span>
+                <div class="balloon">
+                    {{ comment.student_comment }}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="comment-form">
+                <form action="{{ url_for('add_comment', course_id=course.id) }}" method="POST">
+                    <input type="text" name="program" placeholder="学部" required>
+                    <input type="number" name="grade" placeholder="学年" min="1" max="4" required>
+                    <textarea name="student_comment" placeholder="コメント" required></textarea>
+                    <button type="submit">コメント追加</button>
+                </form>
+                <form method="POST" action="{{ url_for('upload_file', course_id=course.id) }}" enctype="multipart/form-data">
+                    <input type="file" name="file">
+                    <div class="file_bt"><input type="submit" value="Upload"></div>
+                </form>
+            </div>
+        </div>
+    </details>
+    {% endfor %}
+</div>
+{% endblock %}

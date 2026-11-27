@@ -1,0 +1,42 @@
+﻿@charset "utf-8";
+
+/*========= レイアウトのためのCSS ===============*/
+
+/*========= 検索窓のためのCSS ===============*/
+
+/*検索窓のエリア*/
+#search-wrap {
+    position: fixed;
+    z-index: 2;
+    /*最前面に設定。数字は変更可*/
+    bottom: 10px;
+    right: 20px;
+    background: #fff url("https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/7-2-3/img/icon_search.svg") no-repeat 17px center;
+    background-size: 25px 25px;
+
+}
+
+/*テキスト入力input設定*/
+#search-text {
+    width: 60px;
+    /*テキスト入力エリアが伸びる前の横幅*/
+    height: 60px;
+    padding: 20px;
+    border: none;
+    /*虫眼鏡アイコンを背景に表示*/
+    transition: all 0.5s;
+    /*transitionを使ってスムースに伸ばす*/
+    outline: none;
+    cursor: pointer;
+    /*カーソルを指マークに*/
+    padding: 0 20px 0 40px;
+    
+}
+
+/*テキスト入力inputにフォーカスした時の形状*/
+#search-text:focus {
+    width: 250px;
+    /*テキスト入力エリアが伸びる後の横幅*/
+    padding: 20px 0 20px 60px;
+    box-shadow: 0 2px rgba(6, 0, 1, .26);
+}

@@ -1,0 +1,23 @@
+﻿{% extends 'layout.html' %}
+
+{% block content %}
+<h2 class="question-comment">{{ question.comment }}</h2>
+
+<div class="container">
+    <form action="{{ url_for('add_reply', question_id=question.id) }}" method="POST">
+        <div class="mb-3">
+            <label for="program">学部・コース</label>
+            <input name="program" required></input><br>
+
+            <label for="grade">学年</label>
+            <input type="number" name="grade" min="1" max="4" required><br>
+
+            <label for="exampleFormControlTextarea1" class="form-label">返信内容</label>
+            <textarea class="form-control" name="detail" id="exampleFormControlTextarea1" rows="3" required></textarea>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success">返信</button>
+        <a href="{{ url_for('q_and_a') }}" class="btn btn-outline-success return-link">戻る</a>
+    </form>
+</div>
+{% endblock %}

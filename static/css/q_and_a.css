@@ -1,0 +1,129 @@
+﻿.question {
+    max-width: 960px;
+    margin-bottom: 10px;
+    margin-left: 7px;
+    position: relative;
+}
+
+.question summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 1em 2em;
+    border: 2px solid #2589d0;
+    border-radius: 5px;
+    color: #18679f;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.question summary::-webkit-details-marker {
+    display: none;
+}
+
+.question summary::after {
+    transform: translateY(-25%) rotate(45deg);
+    width: 7px;
+    height: 7px;
+    border-bottom: 3px solid #2589d0;
+    border-right: 3px solid #2589d0;
+    content: '';
+    transition: transform .3s;
+}
+
+
+
+.question[open] summary::after {
+    transform: rotate(225deg);
+}
+
+.question p {
+    position: relative;
+    transform: translateY(-10px);
+    opacity: 0;
+    margin-top: 20px;
+    padding: .8em 1.2em;
+    border: 2px solid #2589d0;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333333;
+    transition: transform .5s, opacity .5s;
+}
+
+.question[open] p {
+    transform: none;
+    opacity: 1;
+}
+
+.question p::before,
+.question p::after {
+    position: absolute;
+    top: -15px;
+    left: 1.2em;
+    width: 30px;
+    height: 15px;
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    content: '';
+}
+
+.question p::before {
+    background-color: #2589d0;
+}
+
+.question p::after {
+    top: -12px;
+    background-color: #fff;
+}
+
+.question font {
+    color: #747474;
+    text-align: right;
+}
+
+.post-btn {
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    background: #5fb3f5;
+    border-radius: 50%;
+    text-align: center;
+    background-image: url("../img/pen.png");
+    background-repeat: no-repeat;
+    background-position: 60% 45%;
+    background-size: 35px, 35px;
+}
+
+.post-btn:hover {
+    background: #33a6fe;
+    text-align: center;
+    background-image: url("../img/pen.png");
+    background-repeat: no-repeat;
+    background-position: 60% 45%;
+    background-size: 35px, 35px;
+}
+
+.reply-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #2589d0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    /* float: right; */
+    /* position: absolute; */
+    /* right: 10%; */
+}
+
+.reply-btn:hover {
+    background-color: #18679f;
+}

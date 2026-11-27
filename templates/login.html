@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ログイン</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/courses.css') }}">
+</head>
+
+<body>
+    <img class="logo" src="{{ url_for('static', filename='img/KagawaLink.jpg') }}" width="222.75" height="48" />
+    <div class="line"></div>
+    <div class="back">
+        <br><br><br>
+
+        <div class="container">
+            <form action="/login" method="POST">
+                <p class="fsize">ログイン画面</p>
+                <input type="text" name="program" placeholder="学部・コース" />
+                <input type="number" name="grade" min="1" max="4" placeholder="学年" />
+                <button type="submit">ログイン</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

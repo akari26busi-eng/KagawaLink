@@ -1,0 +1,155 @@
+﻿.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.course {
+    background-color: #d4f0f7;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+
+}
+
+.course:not([open]) {
+    margin-bottom: 7px;
+}
+
+.course summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 1em 2em;
+    border-radius: 5px;
+    background-color: #b3dbe4;
+    color: #254657;
+    font-weight: 600;
+    cursor: pointer;
+    
+}
+
+.course summary::-webkit-details-marker {
+    display: none;
+}
+
+.course summary::before,
+.course summary::after {
+    width: 3px;
+    height: .9em;
+    border-radius: 5px;
+    background-color: #fff;
+    content: '';
+}
+
+.course summary::before {
+    position: absolute;
+    right: 2em;
+    rotate: 90deg;
+}
+
+.course summary::after {
+    transition: rotate .3s;
+}
+
+.course[open] summary::after {
+    rotate: 90deg;
+}
+
+.course p {
+    font-size: 17.5px;
+    transform: translateY(-10px);
+    opacity: 0;
+    margin: 0;
+    padding: 0em 0em 2em 2em;
+    color: #292929;
+    transition: transform .5s, opacity .5s;
+}
+
+.course[open] p {
+    transform: none;
+    opacity: 1;
+}
+
+.course-content {
+    padding: 1em 2em;
+    color: #292929;
+}
+
+.label {
+    color: #6e6e6e;
+    font-weight: bold;
+}
+
+.comment {
+    margin-top: 10px;
+}
+
+.comment-header {
+    font-size: 0.9em;
+    color: #6e6e6e;
+}
+
+.balloon1-left {
+    position: relative;
+    display: inline-block;
+    margin-left: 15px;
+    margin-bottom: 4px;
+    margin-top: 0px;
+    padding: 7px 10px;
+    min-width: 120px;
+    max-width: 100%;
+    color: #555;
+    font-size: 16px;
+    background: #e0edff;
+    border-radius: 15px;
+}
+
+.balloon1-left:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    margin-top: -15px;
+    border: 15px solid transparent;
+    border-right: 15px solid #e0edff;
+}
+
+.balloon1-left p {
+    margin: 0;
+    padding: 0;
+}
+
+div.course {
+    margin: 2px;
+}
+
+
+.comment-form {
+    margin-top: 20px;
+}
+
+.comment-form input,
+.comment-form textarea {
+    background-color: #fff;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.comment-form button {
+    background-color: #24a6c6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+}
+
+.comment-form button:hover {
+    background-color: #1e8fa7;
+}

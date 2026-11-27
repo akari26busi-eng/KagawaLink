@@ -1,0 +1,188 @@
+﻿h2 {
+    font-family: sans-serif;
+    color: #343434;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px;
+    border: #fff 1px solid;
+    background-color: #fff;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.space {
+    height: 430px;
+}
+
+.space p {
+    padding-top: 45vh;
+    text-align: center;
+}
+
+div.menu {
+    display: block;
+    /* 初期状態で非表示にする場合は「none」を設定 */
+}
+
+@media screen and (max-width: 760px) {
+    /* メニューに切り替え幅 */
+    div.menu {
+        display: block;
+    }
+}
+
+div.menu .menu-btn {
+    /* ボタン領域を右上に作成 */
+    position: fixed;
+    top: 10px;
+    /* ボタンの縦位置 */
+    right: 10px;
+    /* ボタンの横位置 */
+    display: flex;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    background-color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+div.menu .menu-btn span,
+div.menu .menu-btn span:before,
+div.menu .menu-btn span:after {
+    /* ボタンの3本線 */
+    content: '';
+    display: block;
+    height: 3px;
+    width: 35px;
+    border-radius: 3px;
+    background-color: #fff;
+    /* 3本線の色 */
+    position: absolute;
+}
+
+div.menu .menu-btn span:before {
+    bottom: 10px;
+    /* 上の線は上方向に10px移動 */
+}
+
+div.menu .menu-btn span:after {
+    top: 10px;
+    /* 下の線は下方向に10px移動 */
+}
+
+div.menu #menu-btn-check:checked~.menu-btn span {
+    /* ボタンクリック時：真ん中の線は非表示 */
+    background-color: rgba(255, 255, 255, 0);
+}
+
+div.menu #menu-btn-check:checked~.menu-btn span::before {
+    /* ボタンクリック時：上の線を斜め（／） */
+    bottom: 0;
+    transform: rotate(45deg);
+}
+
+div.menu #menu-btn-check:checked~.menu-btn span::after {
+    /* ボタンクリック時：下の線を斜め（＼） */
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+div.menu #menu-btn-check {
+    /* チェックボックスは非表示 */
+    display: none;
+}
+
+div.menu #menu-btn-check:checked~.menu-content {
+    /* ボタンクリック時：メニュー領域を表示 */
+    left: calc(100% - 220px);
+    /* メニュー領域の引き出し位置（0にすると左端まで） */
+}
+
+div.menu .menu-content {
+    /* メニューのコンテンツ領域 */
+    width: 100%;
+    height: 100vh;
+    /* autoにするとコンテンツ領域分までに */
+    position: fixed;
+    top: 0;
+    left: 100%;
+    overflow: auto;
+    z-index: 80;
+    padding: 0 10px;
+    /* メニュー領域の左右の隙間 */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* メニュー領域の背景色 */
+    transition: all 0.5s;
+    /* メニュー領域の引き出しスピード */
+}
+
+div.menu .menu-content ul {
+    padding: 0;
+    margin: 0px;
+    line-height: 1.6;
+    word-wrap: break-word;
+    box-sizing: border-box;
+    /* メニューの領域を作成 */
+    display: block;
+    width: 200px;
+    /* メニュー領域の横幅を設定（100%にすると横幅いっぱい） */
+    padding-top: 80px;
+    /* ボタン領域分を下に下げる */
+}
+
+div.menu .menu-content ul li {
+    /* メニューの項目領域 */
+    border-top: solid 1px #fff;
+    /* メニュー項目間の線色 */
+    list-style: none;
+}
+
+div.menu .menu-content ul li:last-child {
+    border-bottom: none 1px #fff;
+    /* 最後のメニュー項目の下線色 */
+}
+
+div.menu .menu-content ul li a {
+    /* メニューの項目領域（リンク実体） */
+    display: block;
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
+    /* メニュー項目の文字色 */
+    font-weight: bold;
+    padding: 10px 0px;
+    text-align: center;
+    /* メニュー項目の表示位置 */
+}
+
+div.menu .menu-content ul li a span {
+    font-size: 90%;
+    font-weight: normal;
+}
+
+div.menu .menu-content ul li a:hover {
+    opacity: 0.6;
+}
+
+/* .back {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../img/login_img.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+} */

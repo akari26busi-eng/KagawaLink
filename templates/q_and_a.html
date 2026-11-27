@@ -1,0 +1,26 @@
+﻿{% extends 'layout.html' %}
+
+{% block content %}
+
+<h2>Q&A</h2>
+{% for post in posts %}
+<details class="question">
+  <summary>
+    {{ post.comment }}<br>
+    <font size="1">{{ post.date.date() }}   ：{{ post.student_program }} {{ post.student_grade }}年</font>
+  </summary>
+  {% for reply in post.replies %}
+  <p>
+    <font size="1">{{ reply.date.date() }}   ：{{ reply.student_program }} {{ reply.student_grade }}年</font><br>
+    {{ reply.comment }}
+  </p>
+  {% endfor %}
+  <a href="{{ url_for('reply', question_id=post.id) }}" class="reply-btn">返信</a>
+</details>
+{% endfor %}
+
+<a href="/question" class="post-btn-link">
+  <div class="post-btn"></div>
+</a>
+
+{% endblock %}

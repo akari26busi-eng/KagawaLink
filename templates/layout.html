@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Kagawa Link</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+    <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/courses.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/q_and_a.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kensaku.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reply_form.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/post_form.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <img class="logo" src="{{ url_for('static', filename='img/KagawaLink.jpg') }}" width="35%" height="35%"/>
+    </div>
+    <div class="container">
+        <div class="menu">
+            <input type="checkbox" id="menu-btn-check" value="">
+            <label for="menu-btn-check" class="menu-btn"><span></span></label>
+            <div class="menu-content">
+                <ul>
+                    <li><a href="/courses"><span>Classes</span></a></li>
+                    <li><a href="/q_and_a"><span>Q&A</span></a></li>
+                    <li><a href="/admin/add_course"><span>管理ページ</span></a></li>
+                </ul>
+            </div>
+        </div>
+    <div class="back">
+        {% block content %}
+        <!-- main-->
+        {% endblock %}
+    </div>
+    </div>
+</body>
+
+</html>
