@@ -159,6 +159,3 @@ python app.py
 **その他**
 - [著作権と授業](https://copyright-edu.axies.jp/sugowaka35/use/)
 
-## 👤 作者
-
-吉田 明理
